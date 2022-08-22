@@ -1,0 +1,146 @@
+:root{
+    background-color: lightcyan;
+}
+
+li{
+    padding-bottom: 5px;
+    color:aliceblue;
+    text-shadow: 2px 1px 3px black;
+}
+
+p{
+    color:black;
+    text-shadow: .5px .5px white;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: -.5rem;
+}
+
+input{
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+button {
+    display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: teal;
+    border-radius: 15px;
+    border: 3px double grey;
+    color: white; 
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+    width: 200px;
+    margin-top: 3px;
+}
+
+button:hover {
+    box-shadow: 5px 3px 8px grey;
+}
+
+#startpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#timer { 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: lightpink;
+    color: grey
+    font size: 40px;
+    text-shadow: .5px .5px black;
+    text-align: center;
+}
+
+#quiz {
+    display: none;
+}
+
+#result {
+    display: none;
+}
+
+#gameover {
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#highscore {
+    height: 20px;
+    border: groove 2px;
+}
+
+#highscorepage {
+    display: none;
+    width: 50%;
+    border: solid;
+    border-color: grey;
+    border-bottom-style: groove;
+    padding-bottom: 15px;
+    background: lightpink;
+}
+
+#highscoreheader{
+    display:flex;
+    justify-content: space-around;
+    border-bottom-style: outset;
+    margin-bottom: 5px;
+    background-color: lightcoral;
+    color: white;
+    font-family: sans-serif;
+}
+#highscoreContainer{
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#initials{
+    margin: 5px;
+    height: 15px;
+}
+
+#highscoreinitials{
+    display: inline-block;
+    padding-left: 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+#highscorescore{
+    float: right;
+    padding-right: 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+#finalScore{
+    padding-bottom: 10px;
+    font-size: 40px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+#endGameBtns{
+    display: none;
+}
