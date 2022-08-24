@@ -1,4 +1,4 @@
-// Gathering HTML elements for manipulation
+// Page variables
 var quizBody = document.getElementById("quiz");
 var resultsEl = document.getElementById("result");
 var finalScoreEl = document.getElementById("finalScore");
@@ -9,8 +9,8 @@ var startQuizButton = document.getElementById("startbtn");
 var startQuizDiv = document.getElementById("startpage");
 var highscoreContainer = document.getElementById("highscoreContainer");
 var highscoreDiv = document.getElementById("highscorePage");
-var highscoreInputName = document.getElementById("initials");
-var highscoreDisplayName = document.getElementById("highscoreinitials");
+var highscoreInputName = document.getElementById("names");
+var highscoreDisplayName = document.getElementById("highscorenames");
 var endGameBtns = document.getElementById("endGameBtns");
 var submitScoreBtn = document.getElementById("submitScore");
 var highscoreDisplayScore = document.getElementById("highscorescore");
@@ -26,14 +26,14 @@ var quizQuestions = [{
     choiceB: "Strings",
     choiceC: "Alerts",
     choiceD: "Numbers",
-    correctAnswer: "A"},
+    correctAnswer: "a"},
   {
     question: "The condition in an if/then statement is enclosed with",
     choiceA: "Quotes",
     choiceB: "Parantheses",
     choiceC: "Curly Brackets",
     choiceD: "Square Brackets",
-    correctAnswer: "B"},
+    correctAnswer: "b"},
    {
     question: "Arrays in javascript can be used to store",
     choiceA: "Numbers and Strings",
@@ -72,7 +72,7 @@ var quizQuestions = [{
         
     
     ];
-// Other global variables
+// Other variables
 var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
 var timeLeft = 76;
@@ -80,7 +80,7 @@ var timerInterval;
 var score = 0;
 var correct;
 
-// This function cycles through the object array containing the quiz questions to generate the questions and answers.
+//Function to cycle through questions
 function generateQuizQuestion(){
     gameoverDiv.style.display = "none";
     if (currentQuestionIndex === finalQuestionIndex){
@@ -94,7 +94,7 @@ function generateQuizQuestion(){
     buttonD.innerHTML = currentQuestion.choiceD;
 };
 
-// Start Quiz function starts the TimeRanges, hides the start button, and displays the first quiz question.
+//Start quiz function
 function startQuiz(){
     gameoverDiv.style.display = "none";
     startQuizDiv.style.display = "none";
@@ -112,22 +112,22 @@ function startQuiz(){
       }, 1000);
     quizBody.style.display = "block";
 }
-// This function is the end page screen that displays your score after either completeing the quiz or upon timer run out
+//End Page function
 function showScore(){
     quizBody.style.display = "none"
     gameoverDiv.style.display = "flex";
     clearInterval(timerInterval);
+    //return showScore();
     highscoreInputName.value = "";
     finalScoreEl.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
 }
 
-// On click of the submit button, we run the function highscore that saves and stringifies the array of high scores already saved in local stoage
-// as well as pushing the new user name and score into the array we are saving in local storage. Then it runs the function to show high scores.
+//function to save score
 submitScoreBtn.addEventListener("click", function highscore(){
     
     
-    if(highscoreInputName.value === "") {
-        alert("Initials cannot be blank");
+    if (highscoreInputName.value === "") {
+        alert("Name cannot be blank");
         return false;
     }else{
         var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
@@ -150,7 +150,7 @@ submitScoreBtn.addEventListener("click", function highscore(){
     
 });
 
-// This function clears the list for the high scores and generates a new high score list from local storage
+//function to clear high score list
 function generateHighscores(){
     highscoreDisplayName.innerHTML = "";
     highscoreDisplayScore.innerHTML = "";
@@ -165,7 +165,7 @@ function generateHighscores(){
     }
 }
 
-// This function displays the high scores page while hiding all of the other pages from 
+//function to display high score
 function showHighscore(){
     startQuizDiv.style.display = "none"
     gameoverDiv.style.display = "none";
@@ -176,14 +176,14 @@ function showHighscore(){
     generateHighscores();
 }
 
-// This function clears the local storage of the high scores as well as clearing the text from the high score board
+//function to clear local storage
 function clearScore(){
     window.localStorage.clear();
     highscoreDisplayName.textContent = "";
     highscoreDisplayScore.textContent = "";
 }
 
-// This function sets all the variables back to their original values and shows the home page to enable replay of the quiz
+//function to restore original variable values
 function replayQuiz(){
     highscoreContainer.style.display = "none";
     gameoverDiv.style.display = "none";
@@ -213,5 +213,5 @@ function checkAnswer(answer){
     }
 }
 
-// This button starts the quiz!
+//start quiz button 
 startQuizButton.addEventListener("click",startQuiz);
